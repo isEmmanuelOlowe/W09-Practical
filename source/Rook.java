@@ -1,5 +1,5 @@
 public class Rook extends Piece {
-  private char[] color = {'♖', '♜'};
+  private char[] color = {'♖', '♜', '.'};
   private String piece_name = "ROOK";
 
   public boolean validDesination(int[] from, int[] to){

@@ -23,6 +23,10 @@ public class Player {
     if(inPlay(from) == true && inPlay(to) == false){
       vaildTurn = this.piece[movePiece].move(from, to);
     }
+    if(validTurn == false){
+      System.out.println("Illegal move!");
+    }
+    return validTurn;
   }
 
   //checks if that location has a piece in play by player

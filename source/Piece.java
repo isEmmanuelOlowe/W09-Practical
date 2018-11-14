@@ -29,7 +29,8 @@ public class Piece {
     aLocation[1] = location.substring(1);
     for(i int = 0;  i < positions.length(); t++){
       if(positions.substring(1).equals(location.substring(0))){
-        aLocation[0] = Integer.parseInt(positions.substring(1));
+        //one is substracted because position begin a 0 in array
+        aLocation[0] = Integer.parseInt(positions.substring(1)) - 1;
         aLocation[1] = Integer.parseInt(location.substring(1));
         return aLocation;
       }

@@ -1,5 +1,5 @@
 public class Bishop extends Piece {
-  private char[] color = {};
+  private char[] color = {'♗', '♝', '.'};
   private String piece_name = "BISHOP";
 
   public boolean validDesination(int[] from, int[] to){

@@ -9,7 +9,9 @@ public class Game {
     // Minimal constructor. Expand as needed (kt54)
     public Game() {
         gameBoard = new Board();
+        //First Player is White
         players[0] = new Players(0, gameBoard);
+        //Second Player is Black
         players[1] = new Players(1, gameBoard);
     }
 
@@ -31,7 +33,7 @@ public class Game {
               //gets position they wany to move from and to
               String pos1 = reader.getString();
               String pos2 = reader.getString();
-            //condition makes sure that move was valid
+              //condition makes sure that move was valid
             }while(players[0].move(pos1, pos2));
             //changes the turn to that of the other player
             turn = (turn == 0)? 1: 0;
