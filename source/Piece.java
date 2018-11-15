@@ -17,13 +17,12 @@ class Piece {
   public void initialLoc(){
     int[] pos = convert(this.location);
     this.location = this.location.substring(0, 1) + (this.playerNo * 7 + 1);
-    System.out.println(this.location);
     this.gameBoard.setPiece(pos[0], this.playerNo * 7, this.pieceSymbol);
   }
   public boolean move(String from, String to){
     int[] fromPos = convert(from);
     int[] toPos = convert(to);
-    if(toPos[0] == -1){
+    if(toPos[0] == -1 || toPos[1] == -1){
       return false;
     }
     boolean validMove = (validDesination(fromPos, toPos))? validPath(fromPos, toPos) : false;
@@ -48,18 +47,19 @@ class Piece {
   }
 
   public static int[] convert(String location){
-    String positions = "abcdefgh";
-    int[] aLocation = new int[2];
+    String[] positions = {"abcdefgh", "12345678"};
+    int[] aLocation = {-1, -1};
     //sets second index
-    aLocation[1] = Integer.parseInt(Character.toString(location.charAt(1))) - 1;
-    for(int i = 0;  i < positions.length(); i++){
-      if(positions.charAt(i) == location.charAt(0)){
+    for(int i = 0;  i < positions[0].length(); i++){
+      if(positions[0].charAt(i) == location.charAt(0)){
         aLocation[0] = i;
         //one is substracted because position begin a 0 in array
-        return aLocation;
+      }
+      if(positions[1].charAt(i) == location.charAt(1)){
+        aLocation[1] = i;
+        //one is substracted because position begin a 0 in array
       }
     }
-    aLocation[0] = -1;
     return aLocation;
   }
 }

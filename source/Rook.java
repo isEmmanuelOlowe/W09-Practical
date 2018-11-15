@@ -1,6 +1,6 @@
 class Rook extends Piece {
   private String piece_name = "ROOK";
-  private char[] color = {'♜','♖'};
+  private char[] color = {'♖', '♜'};
 
   public Rook(int playerNo, Board gameBoard, String location){
     super(playerNo, gameBoard, location);
@@ -10,7 +10,7 @@ class Rook extends Piece {
   public boolean validDesination(int[] from, int[] to){
     //please change this to or
     //wasnt avaliable on my keyboard at time
-    if(from[0] == from[0] || from[1] == from[1]){
+    if(from[0] == to[0] || from[1] == to[1]){
       return true;
     }
     return false;
@@ -32,13 +32,10 @@ class Rook extends Piece {
       return true;
     }
     //checks path is not being blocked
-    System.out.println(pos[0]);
-    System.out.println(pos[1]);
     if(this.gameBoard.getPos(pos[0], pos[1]) == this.free){
       //runs the method for next position
       return this.validPath(pos, to);
     }
-    System.out.println("error");
     return false;
   }
 }

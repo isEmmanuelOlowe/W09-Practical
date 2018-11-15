@@ -1,7 +1,7 @@
 import java.lang.Math;
 
 class Bishop extends Piece {
-  private char[] color = {'♝', '♗'};
+  private char[] color = {'♗', '♝'};
   private String piece_name = "BISHOP";
 
   public Bishop(int playerNo, Board gameBoard, String location){
@@ -16,7 +16,6 @@ class Bishop extends Piece {
     if(Math.abs(from[0] - to[0]) == Math.abs(from[1] - to[1])){
       return true;
     }
-    System.out.println("Here");
     return false;
   }
 
@@ -27,8 +26,6 @@ class Bishop extends Piece {
     stepX += from[0];
     int stepY = (to[1] - from[1] >= 0)? 1: -1;
     stepY += from[1];
-    System.out.println(stepX);
-    System.out.println(stepY);
     //is only true if all the squares up to it are free
     if(stepX == to[0]){
       return true;

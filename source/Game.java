@@ -21,11 +21,11 @@ public class Game {
         int turn = 0;
         //condition checks if any player has no pieces left
         while(players[0].state() == false && players[1].state() == false){
-            //prints the board
-            this.gameBoard.printBoard();
             //used to determine if the user took a valid turn
             boolean validTurn = false;
             do{
+              //prints the board
+              this.gameBoard.printBoard();
               //Prompts the player for input
               players[turn].promptInput();
               //gets position they wany to move from and to

@@ -7,8 +7,10 @@ public class Player {
   private int noPieces = 4;
   private String name;
   private int movePiece;
+  private Board gameBoard;
 
   public Player(int playerNo, Board gameBoard) {
+    this.gameBoard = gameBoard;
     this.playerName = (playerNo == 0)?"White": "Black";
     this.opponentName = (playerNo == 0)?"Black":"White";
     this.pieces[0] = new Rook(playerNo, gameBoard, "a1");
@@ -55,6 +57,7 @@ public class Player {
   //notifes winner if no pieces remain
   public boolean state(){
     if(noPieces == 0){
+      this.gameBoard.printBoard();
       System.out.println(this.opponentName + " wins!");
       return true;
     }
