@@ -30,6 +30,9 @@ public class Game {
               players[turn].promptInput();
               //gets position they wany to move from and to
               String pos1 = reader.getString();
+              if(pos1.equals("quit")){
+                System.exit(1);
+              }
               String pos2 = reader.getString();
               if(players[turn].move(pos1, pos2)){
                 //informs a valid turn has been taken
