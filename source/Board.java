@@ -32,10 +32,6 @@ public class Board {
         for(int x=0; x<boardsize; x++)
             for(int y=0; y<boardsize; y++)
                 board[x][y] = FREE;
-
-        // Put a single bishop in the middle
-        // Obviously, you will need to replace this with your own initialisation code
-        board[boardsize/2][boardsize/2] = BLACKBISHOP;
     }
 
     // Prints the board. This method was provided with the starter code. Better not modify to ensure
@@ -76,11 +72,13 @@ public class Board {
         System.out.print("\n\n");
     }
     //Sets a piece to a location on the board
-    public void setPiece(int y, int x, char piece){
-      this.board[y][x] = piece;
+    public void setPiece(int x, int y, char piece){
+      //7 is required due to the design of the coordinate System
+      //it has been reversed
+      this.board[x][7-y] = piece;
     }
     //gets what is on position on the board
-    public char getPos(int y, int x){
-      return this.board[y][x];
+    public char getPos(int x, int y){
+      return this.board[x][7-y];
     }
 }

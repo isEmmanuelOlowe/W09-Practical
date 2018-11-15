@@ -1,39 +1,65 @@
-public class Piece {
+class Piece {
 
-  private char[] color;
-  private char piece_symbol;
-  private String location;
-  private String piece_name;
-  private Board gameBoard;
-  public Piece(int player_no, Board gameBoard) {
-    piece = (player_no == 1)? color[0]: color[1];
+  protected char pieceSymbol;
+  protected String location;
+  protected String piece_name;
+  protected Board gameBoard;
+  protected int playerNo;
+  protected final char free = '.';
+  public Piece(int playerNo, Board gameBoard, String location) {
+    this.playerNo = playerNo;
     //gives it a reference to the game board
     this.gameBoard = gameBoard;
+    //gives the piece an initial location
+    this.location = location;
   }
 
+  public void initialLoc(){
+    int[] pos = convert(this.location);
+    this.location = this.location.substring(0, 1) + (this.playerNo * 7 + 1);
+    System.out.println(this.location);
+    this.gameBoard.setPiece(pos[0], this.playerNo * 7, this.pieceSymbol);
+  }
   public boolean move(String from, String to){
     int[] fromPos = convert(from);
     int[] toPos = convert(to);
-    int validMove = (validDesination(fromPos, toPos)? validPath(fromPos, toPos) : false;
-    this.location = (validMove)? to: this.location;
+    if(toPos[0] == -1){
+      return false;
+    }
+    boolean validMove = (validDesination(fromPos, toPos))? validPath(fromPos, toPos) : false;
+    if(validMove){
+      this.location = to;
+      this.gameBoard.setPiece(fromPos[0], fromPos[1], this.free);
+      this.gameBoard.setPiece(toPos[0], toPos[1], this.pieceSymbol);
+    }
     return validMove;
   }
 
-  public getLocation(){
+  public boolean validDesination(int[] from, int[] to){
+    return true;
+  }
+
+  public boolean validPath(int[] from, int[] to){
+    return true;
+  }
+
+  public String getLocation(){
     return this.location;
   }
 
   public static int[] convert(String location){
     String positions = "abcdefgh";
     int[] aLocation = new int[2];
-    aLocation[1] = location.substring(1);
-    for(i int = 0;  i < positions.length(); t++){
-      if(positions.substring(1).equals(location.substring(0))){
+    //sets second index
+    aLocation[1] = Integer.parseInt(Character.toString(location.charAt(1))) - 1;
+    for(int i = 0;  i < positions.length(); i++){
+      if(positions.charAt(i) == location.charAt(0)){
+        aLocation[0] = i;
         //one is substracted because position begin a 0 in array
-        aLocation[0] = Integer.parseInt(positions.substring(1)) - 1;
-        aLocation[1] = Integer.parseInt(location.substring(1));
         return aLocation;
       }
     }
+    aLocation[0] = -1;
+    return aLocation;
   }
 }
