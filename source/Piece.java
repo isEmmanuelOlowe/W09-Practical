@@ -5,7 +5,7 @@ class Piece {
   protected String piece_name;
   protected Board gameBoard;
   protected int playerNo;
-  protected final char free = '.';
+  protected final char FREE = '.';
 
   //constructor for Pieces
   public Piece(int playerNo, Board gameBoard, String location) {
@@ -40,7 +40,7 @@ class Piece {
       //changes their current location
       this.location = to;
       //sets piece on board
-      this.gameBoard.setPiece(fromPos[0], fromPos[1], this.free);
+      this.gameBoard.setPiece(fromPos[0], fromPos[1], this.FREE);
       this.gameBoard.setPiece(toPos[0], toPos[1], this.pieceSymbol);
     }
     return validMove;

@@ -37,7 +37,7 @@ class Bishop extends Piece {
       return true;
     }
     //makes use the there position they are passing through is free
-    if(this.gameBoard.getPos(stepX, stepY) == this.free){
+    if(this.gameBoard.getPos(stepX, stepY) == this.FREE){
       int[] nextFrom = {stepX, stepY};
       //runs method again for the next position
       return this.validPath(nextFrom, to);

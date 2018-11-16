@@ -39,7 +39,7 @@ class Rook extends Piece {
       return true;
     }
     //checks path is not being blocked
-    if(this.gameBoard.getPos(pos[0], pos[1]) == this.free){
+    if(this.gameBoard.getPos(pos[0], pos[1]) == this.FREE){
       //runs the method for next position
       return this.validPath(pos, to);
     }
