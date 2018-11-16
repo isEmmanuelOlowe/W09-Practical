@@ -1,8 +1,8 @@
 public class Player {
 
   //stores the location of the pieces that belong to the user
-  private Piece[] pieces = new Piece[4];
-  private int noPieces = 4;
+  private Piece[] pieces = new Piece[6];
+  private int noPieces = 6;
   //stores location of piece that is requested to be move
   private int movePiece;
   private Board gameBoard;
@@ -18,9 +18,11 @@ public class Player {
     this.playerNo = playerNo;
     //assigns pieces initial positions
     this.pieces[0] = new Rook(playerNo, gameBoard, "a");
-    this.pieces[1] = new Bishop(playerNo, gameBoard, "c");
-    this.pieces[2] = new Bishop(playerNo, gameBoard, "f");
-    this.pieces[3] = new Rook(playerNo, gameBoard, "h");
+    this.pieces[1] = new Knight(playerNo, gameBoard, "b");
+    this.pieces[2] = new Bishop(playerNo, gameBoard, "c");
+    this.pieces[3] = new Bishop(playerNo, gameBoard, "f");
+    this.pieces[4] = new Knight(playerNo, gameBoard, "g");
+    this.pieces[5] = new Rook(playerNo, gameBoard, "h");
   }
 
   //moves one of the players pieces
