@@ -4,15 +4,21 @@ class Bishop extends Piece {
   private char[] color = {'♗', '♝'};
   private String piece_name = "BISHOP";
 
+  //constructor for bishop
   public Bishop(int playerNo, Board gameBoard, String location){
+    //constructor for super class
     super(playerNo, gameBoard, location);
+    //assigns the colour of the piece from player no
     this.pieceSymbol = (playerNo == 0)? color[0]: color[1];
+    //sets the pieces intial location
     this.initialLoc();
   }
+
   //checks if it possible to reach destination
   public boolean validDesination(int[] from, int[] to){
-    //please change this to or
-    //wasnt avaliable on keyboard at time
+    //cheks if their final destination can be reached
+    //use factor they must move same distance in square in both axis
+    //since they can only move diagonally
     if(Math.abs(from[0] - to[0]) == Math.abs(from[1] - to[1])){
       return true;
     }

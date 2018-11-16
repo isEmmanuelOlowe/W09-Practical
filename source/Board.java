@@ -71,14 +71,17 @@ public class Board {
             System.out.print(" " + (char)(x + 'a'));
         System.out.print("\n\n");
     }
+
     //Sets a piece to a location on the board
     public void setPiece(int x, int y, char piece){
       //7 is required due to the design of the coordinate System
-      //it has been reversed
+      //7 - y is to fact for reversed positions in array
       this.board[x][7-y] = piece;
     }
+    
     //gets what is on position on the board
     public char getPos(int x, int y){
+      //7 - y is to fact for reversed positions in array
       return this.board[x][7-y];
     }
 }

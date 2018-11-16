@@ -1,9 +1,10 @@
 public class Game {
 
+    //stores the gameBoard
     private Board gameBoard;
+    //stores the players
     private Player[] players = new Player[2];
 
-    // Minimal constructor. Expand as needed (kt54)
     public Game() {
         //object which stores allows for use of game board
         gameBoard = new Board();
@@ -13,7 +14,6 @@ public class Game {
         players[1] = new Player(1, gameBoard);
     }
 
-    // Build on this method to implement game logic.
     public void play() {
         //The initiatisation of object which obtains input
         EasyIn2 reader = new EasyIn2();
@@ -28,12 +28,15 @@ public class Game {
               this.gameBoard.printBoard();
               //Prompts the player for input
               players[turn].promptInput();
-              //gets position they wany to move from and to
+              //gets position they wany to move from
               String pos1 = reader.getString();
+              //quits if the user enters 'quit'
               if(pos1.equals("quit")){
                 System.exit(1);
               }
+              //gets the position the user wants to move to
               String pos2 = reader.getString();
+              //determines and moves the player if move is valid
               if(players[turn].move(pos1, pos2)){
                 //informs a valid turn has been taken
                 validTurn = true;
