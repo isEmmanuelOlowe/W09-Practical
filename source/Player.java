@@ -28,15 +28,11 @@ public class Player {
   //moves one of the players pieces
   public boolean move(String from, String to){
     boolean validTurn = false;
-    //checks if the player actually has piece in initial position
-    //checks if the player already has piece in destination
-    if(from != to){
-      //checks that they have a piece at from location
-      //checks they dont have a piece at their to location
-      if(inPlay(from) == true && inPlay(to) == false){
-        //runs to see if this a valid move for the type of piece
-        validTurn = this.pieces[movePiece].move(from, to);
-      }
+    //checks that they have a piece at from location
+    //checks they dont have a piece at their to location
+    if(inPlay(from) == true && inPlay(to) == false){
+      //runs to see if this a valid move for the type of piece
+      validTurn = this.pieces[movePiece].move(from, to);
     }
     //prompts player their move was invalid
     if(validTurn == false){
