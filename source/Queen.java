@@ -1,6 +1,6 @@
 class Queen extends Piece {
   private String piece_name = "QUEEN";
-  private char[] color = {'♔', '♚'};
+  private char[] color = {'♕', '♛'};
   //stores if queen is moving diagonally
   private boolean isDiagonal;
   //constructor for Queen
